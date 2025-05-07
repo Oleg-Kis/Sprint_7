@@ -30,3 +30,4 @@ class DataForCourier:
 class MessageAnswer:
     ERR_WITHOUT_NAME = "Недостаточно данных для создания учетной записи"
     OK_CREATE_COURIER = {'ok': True}
+    ERR_WITHOUT_PASS = "Недостаточно данных для входа"

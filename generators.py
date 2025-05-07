@@ -19,6 +19,6 @@ def generate_order_body():
 def generate_create_courier_body():
     return {
         "login": fake.word(),
-        "password": fake.random_number(digits=4),
+        "password": fake.word(),
         "firstName": fake.word()
     }

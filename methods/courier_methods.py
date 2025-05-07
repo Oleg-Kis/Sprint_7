@@ -1,12 +1,12 @@
 import requests
 
-from data import Url, DataForCourier
+from data import Url
 
 
 class CourierMethods:
     @staticmethod
     def create_courier(body):
-        response = requests.post(f'{Url.BASE_URL}{Url.CREATE_COURIER}', json=body)
+        response = requests.post(f'{Url.BASE_URL}{Url.CREATE_COURIER}', json = body)
         return response
 
     @staticmethod
@@ -14,14 +14,29 @@ class CourierMethods:
         login = CourierMethods.create_courier(body[1])
         password = CourierMethods.create_courier(body[2])
         params = {"login": login, "password": password}
-        response = requests.post(f'{Url.BASE_URL}{Url.CREATE_COURIER}', params=params)
+        response = requests.post(f'{Url.BASE_URL}{Url.CREATE_COURIER}', params = params)
         return response
 
     @staticmethod
     def get_id_courier(login, password):
         params = {'login': login, 'password': password}
-        response = requests.post(f'{Url.BASE_URL}{Url.LOGIN_COURIER}', params = params)
-        return response.json
+        response = requests.post(f'{Url.BASE_URL}{Url.LOGIN_COURIER}', data = params)
+        return response.json()['id']
+
+    @staticmethod
+    def login_courier(body):
+        login = (body[1])
+        password = (body[2])
+        params = {'login': login, 'password': password}
+        response = requests.post(f'{Url.BASE_URL}{Url.LOGIN_COURIER}', data = params)
+        return response
+
+    @staticmethod
+    def login_courier_without_password(body):
+        login = (body[1])
+        params = {'login': login, 'password': ''}
+        response = requests.post(f'{Url.BASE_URL}{Url.LOGIN_COURIER}', data=params)
+        return response
 
     @staticmethod
     def delete_courier(courier_id):
