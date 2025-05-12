@@ -1,6 +1,6 @@
 import pytest
 
-from generators import generate_create_courier_body
+from generators import generate_create_courier_body, generate_order_body
 from methods.courier_methods import CourierMethods
 
 
@@ -13,3 +13,8 @@ def generate_courier_data():
     yield [courier_body, login, password, firstname]
     courier_id = CourierMethods.get_id_courier(login, password)
     CourierMethods.delete_courier(courier_id)
+
+@pytest.fixture
+def generate_order():
+    order_body = generate_order_body()
+    yield order_body

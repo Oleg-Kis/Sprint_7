@@ -39,6 +39,14 @@ class CourierMethods:
         return response
 
     @staticmethod
+    def login_courier_incorrect_password(body):
+        login = (body[1])
+        password = (body[2])
+        params = {'login': login, 'password': password + 'a'}
+        response = requests.post(f'{Url.BASE_URL}{Url.LOGIN_COURIER}', data=params)
+        return response
+
+    @staticmethod
     def delete_courier(courier_id):
         params = {'id': courier_id}
         return requests.delete(f'{Url.BASE_URL}{Url.DELETE_COURIER}', params = params)

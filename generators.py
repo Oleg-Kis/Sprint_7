@@ -8,7 +8,7 @@ def generate_order_body():
         "lastName": fake.last_name(),
         "address": fake.address(),
         "metroStation": fake.random_int(min=1, max=5),
-        "phone": fake.phone(),
+        "phone": fake.phone_number(),
         "rentTime": fake.random_int(min=1, max=5),
         "deliveryDate": fake.date_between(start_date='today', end_date='+30d').isoformat(),
         "comment": fake.word(),
