@@ -11,8 +11,8 @@ class CourierMethods:
 
     @staticmethod
     def create_courier_without_name(body):
-        login = CourierMethods.create_courier(body[1])
-        password = CourierMethods.create_courier(body[2])
+        login = (body[1])
+        password = (body[2])
         params = {"login": login, "password": password}
         response = requests.post(f'{Url.BASE_URL}{Url.CREATE_COURIER}', params = params)
         return response

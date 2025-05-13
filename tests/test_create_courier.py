@@ -19,4 +19,5 @@ class TestCreateCourier:
     @allure.title("Создание курьера без поля Имя")
     def test_not_create_courier_without_name(self,generate_courier_data):
         courier = CourierMethods.create_courier_without_name(generate_courier_data)
+        CourierMethods.create_courier(generate_courier_data[0])
         assert courier.status_code == 400 and courier.json()["message"] == MessageAnswer.ERR_WITHOUT_NAME
