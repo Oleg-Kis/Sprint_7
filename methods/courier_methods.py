@@ -39,6 +39,13 @@ class CourierMethods:
         return response
 
     @staticmethod
+    def login_courier_without_login(body):
+        password = (body[2])
+        params = {'login': '', 'password': password}
+        response = requests.post(f'{Url.BASE_URL}{Url.LOGIN_COURIER}', data=params)
+        return response
+
+    @staticmethod
     def login_courier_incorrect_password(body):
         login = (body[1])
         password = (body[2])
